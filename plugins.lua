@@ -3,16 +3,14 @@ local plugins = {
   {
     "kylechui/nvim-surround",
     event = "VeryLazy",
-    config = function ()
-      require("nvim-surround").setup()
-    end
+    config = true,
   },
 
   {
     "hrsh7th/nvim-cmp",
     opts = {
       mapping = {
-        ["<Tab>"] = require("cmp").mapping.confirm({select = true}),
+        ["<Tab>"] = require("cmp").mapping.confirm { select = true },
 
         ["<S-Tab>"] = function(callback)
           callback()
@@ -79,37 +77,49 @@ local plugins = {
   {
     "abecodes/tabout.nvim",
     event = "InsertEnter",
-    config = function ()
-      require("tabout").setup({
-        tabkey = "<Tab>",
-        backwards_tabkey = "<S-Tab>",
-        act_as_tab = true,
-        act_as_shift_tab = false,
-        default_tab = "<C-t>",
-        default_shift_tab = "<C-d>",
-        enable_backwards = true,
-        completion = true,
-        tabouts = {
-          { open = "'", close = "'" },
-          { open = '"', close = '"' },
-          { open = "`", close = "`" },
-          { open = "(", close = ")" },
-          { open = "[", close = "]" },
-          { open = "{", close = "}" },
-          { open = "*", close = "*" },
-        },
-        ignore_beginning = false,
-        exclude = {
-          "startify",
-          "dashboard",
-          "packer",
-          "neogitstatus",
-          "NvimTree",
-          "text",
-        },
-      })
-    end
-  }
+    opts = {
+      tabkey = "<Tab>",
+      backwards_tabkey = "<S-Tab>",
+      act_as_tab = true,
+      act_as_shift_tab = false,
+      default_tab = "<C-t>",
+      default_shift_tab = "<C-d>",
+      enable_backwards = true,
+      completion = true,
+      tabouts = {
+        { open = "'", close = "'" },
+        { open = '"', close = '"' },
+        { open = "`", close = "`" },
+        { open = "(", close = ")" },
+        { open = "[", close = "]" },
+        { open = "{", close = "}" },
+        { open = "*", close = "*" },
+      },
+      ignore_beginning = false,
+      exclude = {
+        "startify",
+        "dashboard",
+        "packer",
+        "neogitstatus",
+        "NvimTree",
+        "text",
+      },
+    },
+  },
+
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+        require "custom.configs.null-ls"
+      end,
+    },
+  },
+  config = function()
+    require "plugins.configs.lspconfig"
+    require "custom.configs.lspconfig"
+  end,
 }
 
 return plugins
