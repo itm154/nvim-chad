@@ -6,20 +6,19 @@ M.disabled = {
     ["<leader>e"] = "",
     ["<tab>"] = "",
     ["<S-tab>"] = "",
-  }
+  },
 }
 
 M.nvimtree = {
   n = {
-    ["<leader>e"] = {"<cmd> NvimTreeToggle <CR>", "toggle NvimTree"}
-  }
+    ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "toggle NvimTree" },
+  },
 }
 
 M.tabufline = {
   plugin = true,
 
   n = {
-    -- cycle through buffers
     ["<leader>]"] = {
       function()
         require("nvchad_ui.tabufline").tabuflineNext()
@@ -33,6 +32,12 @@ M.tabufline = {
       end,
       "goto prev buffer",
     },
+  },
+}
+
+M.save = {
+  i = {
+    ["<C-s>"] = { "<cmd> w <CR>" },
   },
 }
 

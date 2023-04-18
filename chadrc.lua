@@ -3,16 +3,16 @@ local M = {}
 
 -- UI settings
 M.ui = {
-  theme = 'catppuccin',
+  theme = "catppuccin",
   statusline = {
     separator_style = "round",
-    theme = "minimal"
+    theme = "minimal",
   },
   cmp = {
-    style = "atom"
+    style = "atom",
   },
   telescope = {
-    style = "bordered"
+    style = "bordered",
   },
   nvdash = {
     load_on_startup = true,
@@ -23,12 +23,12 @@ M.ui = {
       "██║   ██║   ██║╚██╔╝██║╚═╝██║  ╚════██╗███████║",
       "██║   ██║   ██║ ╚═╝ ██║███████╗██████╔╝╚════██║",
       "╚═╝   ╚═╝   ╚═╝     ╚═╝╚══════╝╚═════╝      ╚═╝",
-    }
-  }
+    },
+  },
 }
 
 -- Custom configurations
-M.plugins = 'custom.plugins'
-M.mappings = require 'custom.mappings'
+M.plugins = "custom.plugins"
+M.mappings = require "custom.mappings"
 
 return M
