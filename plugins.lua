@@ -120,6 +120,32 @@ local plugins = {
     require "plugins.configs.lspconfig"
     require "custom.configs.lspconfig"
   end,
+
+  {
+    "j-hui/fidget.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("fidget").setup()
+    end,
+  },
+
+  {
+    "andweeb/presence.nvim",
+    lazy = false,
+    opts = {
+      auto_update = true,
+      main_image = "neovim",
+      neovim_image_text = "i use (n)vim btw",
+
+      editing_text = "Editing %s",
+      file_explorer_text = "Browsing %s",
+      git_commit_text = "Committing changes",
+      plugin_manager_text = "Managing plugins",
+      reading_text = "Reading %s",
+      workspace_text = "Working on %s",
+      line_number_text = "Line %s out of %s",
+    },
+  },
 }
 
 return plugins
