@@ -7,6 +7,17 @@ local plugins = {
   },
 
   {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "rust-analyzer",
+        "lua-language-server",
+        "pyright",
+      },
+    },
+  },
+
+  {
     "hrsh7th/nvim-cmp",
     opts = {
       mapping = {
@@ -113,13 +124,19 @@ local plugins = {
       "jose-elias-alvarez/null-ls.nvim",
       config = function()
         require "custom.configs.null-ls"
+        require "plugins.configs.lspconfig"
+        require "custom.configs.lspconfig"
       end,
     },
   },
-  config = function()
-    require "plugins.configs.lspconfig"
-    require "custom.configs.lspconfig"
-  end,
+
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end,
+  },
 
   {
     "j-hui/fidget.nvim",
@@ -131,7 +148,8 @@ local plugins = {
 
   {
     "andweeb/presence.nvim",
-    lazy = false,
+    lazy = true,
+    event = "BufEnter",
     opts = {
       auto_update = true,
       main_image = "neovim",
