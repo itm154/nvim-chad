@@ -119,6 +119,33 @@ local plugins = {
   },
 
   {
+    "echasnovski/mini.move",
+    event = "VeryLazy",
+    version = false,
+    config = function()
+      require('mini.move').setup()
+    end,
+    opts = {
+      mappings = {
+        -- Visual
+        left = "<M-h>",
+        right = "<M-l>",
+        down = "<M-j>",
+        up = "<M-k>",
+
+        -- Normal
+        line_left = "<M-h>",
+        line_right = "<M-l>",
+        line_down = "<M-j>",
+        line_up = "<M-k>",
+      },
+      options = {
+        reindent_linewise = true,
+      },
+    },
+  },
+
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       "jose-elias-alvarez/null-ls.nvim",
@@ -131,11 +158,16 @@ local plugins = {
   },
 
   {
-    "rust-lang/rust.vim",
-    ft = "rust",
-    init = function()
-      vim.g.rustfmt_autosave = 1
-    end,
+    "folke/trouble.nvim",
+    cmd = { "TroubleToggle", "Trouble" },
+    opts = {
+      auto_open = false,
+      use_diagnostic_signs = true,
+      action_keys = {
+        close = { "q", "<esc>" },
+        cancel = "<C-e>",
+      },
+    },
   },
 
   {
