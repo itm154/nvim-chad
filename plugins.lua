@@ -2,7 +2,7 @@ local plugins = {
 
   {
     "kylechui/nvim-surround",
-    event = "VeryLazy",
+    event = "InsertEnter",
     config = true,
   },
 
@@ -27,7 +27,6 @@ local plugins = {
           callback()
         end,
 
-        -- use Up and down for cycling completion
         ["<Down>"] = require("cmp").mapping(function(fallback)
           local cmp = require "cmp"
           if cmp.visible() then
@@ -41,6 +40,7 @@ local plugins = {
           "i",
           "s",
         }),
+
         ["<Up>"] = require("cmp").mapping(function(fallback)
           local cmp = require "cmp"
           if cmp.visible() then
@@ -68,6 +68,7 @@ local plugins = {
           "i",
           "s",
         }),
+
         ["<C-k>"] = require("cmp").mapping(function(fallback)
           local cmp = require "cmp"
           if cmp.visible() then
@@ -120,10 +121,10 @@ local plugins = {
 
   {
     "echasnovski/mini.move",
-    event = "VeryLazy",
+    event = "InsertEnter",
     version = false,
     config = function()
-      require('mini.move').setup()
+      require("mini.move").setup()
     end,
     opts = {
       mappings = {
@@ -159,6 +160,7 @@ local plugins = {
 
   {
     "folke/trouble.nvim",
+    event = "InsertEnter",
     cmd = { "TroubleToggle", "Trouble" },
     opts = {
       auto_open = false,
@@ -172,7 +174,8 @@ local plugins = {
 
   {
     "j-hui/fidget.nvim",
-    event = "VeryLazy",
+    lazy = true,
+    event = "InsertEnter",
     config = function()
       require("fidget").setup()
     end,
