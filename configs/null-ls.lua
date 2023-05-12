@@ -7,8 +7,8 @@ local lint = null_ls.builtins.diagnostics
 local sources = {
   formatting.prettier,
   formatting.stylua,
-  formatting.autopep8,
   formatting.rustfmt,
+  formatting.black,
 
   lint.shellcheck,
 }
