@@ -10,9 +10,16 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "rust-analyzer",
+        "black",
+        "html-lsp",
         "lua-language-server",
+        "stylua",
+        "marksman",
+        "prettier",
         "pyright",
+        "rust-analyzer",
+        "rustfmt",
+        "shellcheck",
       },
     },
   },
