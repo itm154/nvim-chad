@@ -35,10 +35,4 @@ M.tabufline = {
   },
 }
 
-M.save = {
-  i = {
-    ["<C-s>"] = { "<cmd> w <CR>" },
-  },
-}
-
 return M
