@@ -6,7 +6,15 @@ local on_attach = function(client, bufnr)
 end
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "pyright", "marksman" }
+local servers = {
+  "html",
+  "pyright",
+  "marksman",
+  -- "astro",
+  -- "tsserver",
+  -- "svelte",
+  -- "rnix"
+}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
