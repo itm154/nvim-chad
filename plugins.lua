@@ -18,7 +18,6 @@ local plugins = {
         "prettier",
         "pyright",
         "rust-analyzer",
-        "rustfmt",
         "shellcheck",
       },
     },
