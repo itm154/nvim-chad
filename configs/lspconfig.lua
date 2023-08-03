@@ -10,10 +10,7 @@ local servers = {
   "html",
   "pyright",
   "marksman",
-  -- "astro",
-  -- "tsserver",
-  -- "svelte",
-  -- "rnix"
+  "svelte",
 }
 
 for _, lsp in ipairs(servers) do
