@@ -3,7 +3,7 @@ local M = {}
 
 -- UI settings
 M.ui = {
-  theme = "catppuccin",
+  theme = "rosepine",
   statusline = {
     separator_style = "round",
     theme = "minimal",
